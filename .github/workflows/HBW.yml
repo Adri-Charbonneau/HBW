@@ -1,0 +1,21 @@
+name: UPDATE-PRICE
+
+on:
+  schedule:
+    - cron:  '0 12 * * *'
+  workflow_dispatch:
+
+env:
+    TELEGRAM: ${{ secrets.TELEGRAM }}
+    CHAT_ID: ${{ secrets.CHAT_ID }}
+
+jobs:
+  UPDATE-ALL:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: UPDATE-HBW
+        if: always()
+        run:  |
+          ./SCRIPTS/HBW.ps1
