@@ -6,7 +6,7 @@ $original = $value[0] -replace ","
 $promo = $value[1] -replace ","
 $very_original = $value[2] -replace ","
 
-$date = Get-Date -Format "YYYY-MM-DD"
+$date = Get-Date -Format "yyyy-MM-dd"
 echo $date
 
 $line = "{0},{1},{2},{3}" -f  $date,$original,$promo,$very_original
