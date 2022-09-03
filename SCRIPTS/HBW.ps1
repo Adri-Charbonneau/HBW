@@ -11,7 +11,7 @@ echo $date
 
 $line = "{0},{1},{2},{3}" -f  $date,$original,$promo,$very_original
 echo $line
-$line | Add-Content "./DATA/PRIX_HBW.csv"
+Add-Content -Path "./DATA/PRIX_HBW.csv" -Value "$line"
 
 Remove-Item HBW.html
 
