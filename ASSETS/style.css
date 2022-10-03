@@ -1,25 +1,35 @@
 body {
-    font-family: 'Roboto';
-    color: #333;
-    background-color: #F9F7EB;
-        margin:0;
-      height: 100%;
-  }
-  
-  #title {
-    font-family: 'Merriweather';
-    text-align: center;
-    padding: 30px;
-    font-size: 28px;
-    letter-spacing: -0.01em;
-    color: #333;
-  }
-  
-  
-  #chart-wrapper {
-  position: relative; 
-  height:80vh;
-  width:100vw;
-  }
-  
-  
+  font-family: 'Roboto';
+  color: #333;
+  background-color: #F9F7EB;
+      margin:0;
+    height: 100%;
+}
+
+#title {
+  font-family: 'Merriweather';
+  text-align: center;
+  padding: 30px;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: #333;
+}
+
+
+#chart-wrapper {
+position: relative; 
+height:80vh;
+width:100vw;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+#footer a {
+  color: #aaa;
+}
