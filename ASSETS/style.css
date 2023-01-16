@@ -6,6 +6,17 @@ body {
     height: 100%;
 }
 
+table, th, td {
+	border: 1px solid #aaa;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+#speth {
+	border-top: hidden;
+	border-left: hidden;
+}
+
 #title {
   font-family: 'Merriweather';
   text-align: center;
@@ -20,6 +31,14 @@ body {
 position: relative; 
 height:80vh;
 width:95vw;
+}
+
+#stats {
+  display: block;
+  justify-content: space-between;
+  padding: 20px 10px;
+  color: #aaa;
+  font-size: 15px;
 }
 
 #footer {

@@ -13,12 +13,20 @@
 	<body>
 		<div id="chart-wrapper">
 			<div id="title">Évolution du prix du <i>Handbook of the Birds of the World</i></div>
-			
 			<canvas id="chart"></canvas>
 			<div id="footer">
 				<div class="left" >by <a href="https://github.com/A-d-r-i/HBW/" target="_blank">@A-d-r-i</a></div>
 				<div class="right">Source : <a href="https://www.lynxeds.com/product/handbook-of-the-birds-of-the-world/" target="_blank">Lynx Edicions</a></div>
 			</div>
+			<div id="stats">
+				<h3>Statistiques</h3>
+				<table>
+					<th id="speth"></th><th>Prix original</th><th>Prix promotionnel</th><th>Prix initial dans le texte</th><th>Achat</th>
+					<tr><td>Max</td><td><span id="maxorig"></span></td><td><span id="maxpromo"></span></td><td><span id="maxtxt"></span></td><td rowspan="3">1675.00</td></tr>
+					<tr><td>Moyenne</td><td><span id="moyorig"></span></td><td><span id="moypromo"></span></td><td><span id="moytxt"></span></td></tr>
+					<tr><td>Min</td><td><span id="minorig"></span></td><td><span id="minpromo"></span></td><td><span id="mintxt"></span></td></tr>
+					<tr><td>Prix moyen par livre (17)</td><td><span id="livorig"></span></td><td><span id="livpromo"></span></td><td><span id="livtxt"></span></td><td>98.53</td></tr>
+				</table></div>
 		</div>
 		<script src="ASSETS/index.js"></script>
 	</body>
