@@ -2,9 +2,24 @@ Invoke-WebRequest -Uri "https://www.lynxeds.com/product/handbook-of-the-birds-of
 $Source = Get-Content -path HBW.html -raw
 $value = ($Source | select-string -pattern '([0-9]+,[0-9]*\.[0-9]+)' -AllMatches).Matches.Value
 
-$original = $value[0] -replace ","
-$promo = $value[1] -replace ","
-$very_original = $value[2] -replace ","
+if ( $value.count -eq 1 )
+{
+  $original = "3537.00"
+  $promo = $value -replace ","
+  $very_original = "3537.00"
+}
+elseif ( $value.count -eq 2 )
+{
+  $original = $value[0] -replace ","
+  $promo = $value[1] -replace ","
+  $very_original = "3537.00"
+}
+else
+{
+  $original = $value[0] -replace ","
+  $promo = $value[1] -replace ","
+  $very_original = $value[2] -replace ","
+}
 
 $date = Get-Date -Format "yyyy-MM-dd"
 echo $date
@@ -19,5 +34,5 @@ Remove-Item HBW.html
 git config --local user.email "a-d-r-i@outlook.fr"
 git config --local user.name "A-d-r-i"
 git add .
-git commit -m "[Bot] Update HBW price" --allow-empty
+git commit -m "[Bot] Update HBW price"
 git push -f
