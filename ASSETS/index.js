@@ -6,11 +6,36 @@ function makeChart(price) {
 	var original = price.map(function(d) {return +d.ORIGINAL});
 	var promo = price.map(function(d) {return +d.PROMO});
 	var very_original = price.map(function(d) {return +d.VERY_ORIGINAL});
+	var ann = ["2022-12-27"];
+	var ann_labels = ["Date d'achat"];
+	
+	var annotations_array = ann.map(function(value, index) {
+		return {
+			type: 'line',
+			id: 'vline' + index,
+			mode: 'vertical',
+			scaleID: 'x-axis-0',
+			value: value,
+			borderColor: '#FC5C5C',
+			borderWidth: 2,
+			borderDash: [10, 5],
+			label: {
+				enabled: true,
+				position: "center",
+				content: ann_labels[index]
+			}
+		}
+	});
+	console.log(annotations_array)
 	
 	var chart = new Chart('chart', {
 		type: 'line',
 		options: {
 			maintainAspectRatio: false,
+			annotation: {
+				drawTime: 'afterDatasetsDraw',
+				annotations: annotations_array,
+			},
 			legend: {
 				display: true
 			},
@@ -34,7 +59,7 @@ function makeChart(price) {
 							fontStyle: 'bold',
 							fontColor: '#FF0000'
 						}
-						}
+					}
 				}],
 				yAxes: [{
 					display: true,
