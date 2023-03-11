@@ -1,6 +1,4 @@
 $mail="$env:MAIL"
-echo $mail
-$mail
 
 Invoke-WebRequest -Uri "https://www.lynxeds.com/product/handbook-of-the-birds-of-the-world/" -OutFile "HBW.html"
 $Source = Get-Content -path HBW.html -raw
