@@ -102,6 +102,12 @@ function makeChart(price) {
 			}
 		})
 	}
+	// French locale
+var locale_fr = d3.formatLocale ({
+  "decimal": ",",
+  "thousands": " ",
+  "currency": ["", " €"]
+})
 	
 	// Request data using D3
 d3.csv('./DATA/PRIX_HBW.csv').then(makeChart);
@@ -114,50 +120,81 @@ function makeStats(price) {
 	
 	// calcul
 	maxoriginit = d3.max(original);
-	moyoriginit = d3.mean(original);
-	minoriginit = d3.min(original);
-	livoriginit = (moyoriginit/17);
-	
 	maxpromoinit = d3.max(promo);
-	moypromoinit = d3.mean(promo);
-	minpromoinit = d3.min(promo);
-	livpromoinit = (moypromoinit/17);
-	
 	maxtxtinit = d3.max(very_original);
+	maxlivorig1 = (maxoriginit/17);
+	maxlivpromo1 = (maxpromoinit/17);
+	maxlivtxt1 = (maxtxtinit/17);
+	
+	
+	moyoriginit = d3.mean(original);
+	moypromoinit = d3.mean(promo);
 	moytxtinit = d3.mean(very_original);
+	moylivorig1 = (moyoriginit/17);
+	moylivpromo1 = (moypromoinit/17);
+	moylivtxt1 = (moytxtinit/17);
+	
+	minoriginit = d3.min(original);
+	minpromoinit = d3.min(promo);
 	mintxtinit = d3.min(very_original);
+	minlivorig1 = (minoriginit/17);
+	minlivpromo1 = (minpromoinit/17);
+	minlivtxt1 = (mintxtinit/17);
+	
+	livoriginit = (moyoriginit/17);
+	livpromoinit = (moypromoinit/17);
 	livtxtinit = (moytxtinit/17);
 	
 	// arrondi à 2 chiffres
-	maxorig = d3.format(".2f")(maxoriginit);
-	moyorig = d3.format(".2f")(moyoriginit);
-	minorig = d3.format(".2f")(minoriginit);
-	livorig = d3.format(".2f")(livoriginit);
+	maxorig = locale_fr.format("$,.2f")(maxoriginit);
+	maxpromo = locale_fr.format("$,.2f")(maxpromoinit);
+	maxtxt = locale_fr.format("$,.2f")(maxtxtinit);
+	maxlivorig = locale_fr.format("$,.2f")(maxlivorig1);
+	maxlivpromo = locale_fr.format("$,.2f")(maxlivpromo1);
+	maxlivtxt = locale_fr.format("$,.2f")(maxlivtxt1);
 	
-	maxpromo = d3.format(".2f")(maxpromoinit);
-	moypromo = d3.format(".2f")(moypromoinit);
-	minpromo = d3.format(".2f")(minpromoinit);
-	livpromo = d3.format(".2f")(livpromoinit);
+	moyorig = locale_fr.format("$,.2f")(moyoriginit);
+	moypromo = locale_fr.format("$,.2f")(moypromoinit);
+	moytxt = locale_fr.format("$,.2f")(moytxtinit);
+	moylivorig = locale_fr.format("$,.2f")(moylivorig1);
+	moylivpromo = locale_fr.format("$,.2f")(moylivpromo1);
+	moylivtxt = locale_fr.format("$,.2f")(moylivtxt1);
 	
-	maxtxt = d3.format(".2f")(maxtxtinit);
-	moytxt = d3.format(".2f")(moytxtinit);
-	mintxt = d3.format(".2f")(mintxtinit);
-	livtxt = d3.format(".2f")(livtxtinit);
+	minorig = locale_fr.format("$,.2f")(minoriginit);
+	minpromo = locale_fr.format("$,.2f")(minpromoinit);
+	mintxt = locale_fr.format("$,.2f")(mintxtinit);
+	minlivorig = locale_fr.format("$,.2f")(minlivorig1);
+	minlivpromo = locale_fr.format("$,.2f")(minlivpromo1);
+	minlivtxt = locale_fr.format("$,.2f")(minlivtxt1);
+	
+	livorig = locale_fr.format("$,.2f")(livoriginit);
+	livpromo = locale_fr.format("$,.2f")(livpromoinit);
+	livtxt = locale_fr.format("$,.2f")(livtxtinit);
 	
 	// envoi des valeurs
 	var home_maxorig = document.getElementById('maxorig'); home_maxorig.textContent = maxorig;
-	var home_moyorig = document.getElementById('moyorig'); home_moyorig.textContent = moyorig;
-	var home_minorig = document.getElementById('minorig'); home_minorig.textContent = minorig;
-	var home_livorig = document.getElementById('livorig'); home_livorig.textContent = livorig;
-
 	var home_maxpromo = document.getElementById('maxpromo'); home_maxpromo.textContent = maxpromo;
-	var home_moypromo = document.getElementById('moypromo'); home_moypromo.textContent = moypromo;
-	var home_minpromo = document.getElementById('minpromo'); home_minpromo.textContent = minpromo;
-	var home_livpromo = document.getElementById('livpromo'); home_livpromo.textContent = livpromo;
-	
 	var home_maxtxt = document.getElementById('maxtxt'); home_maxtxt.textContent = maxtxt;
+	var home_maxlivorig = document.getElementById('maxlivorig'); home_maxlivorig.textContent = maxlivorig;
+	var home_maxlivpromo = document.getElementById('maxlivpromo'); home_maxlivpromo.textContent = maxlivpromo;
+	var home_maxlivtxt = document.getElementById('maxlivtxt'); home_maxlivtxt.textContent = maxlivtxt;
+	
+	var home_moyorig = document.getElementById('moyorig'); home_moyorig.textContent = moyorig;
+	var home_moypromo = document.getElementById('moypromo'); home_moypromo.textContent = moypromo;
 	var home_moytxt = document.getElementById('moytxt'); home_moytxt.textContent = moytxt;
+	var home_moylivorig = document.getElementById('moylivorig'); home_moylivorig.textContent = moylivorig;
+	var home_moylivpromo = document.getElementById('moylivpromo'); home_moylivpromo.textContent = moylivpromo;
+	var home_moylivtxt = document.getElementById('moylivtxt'); home_moylivtxt.textContent = moylivtxt;
+	
+	var home_minorig = document.getElementById('minorig'); home_minorig.textContent = minorig;
+	var home_minpromo = document.getElementById('minpromo'); home_minpromo.textContent = minpromo;
 	var home_mintxt = document.getElementById('mintxt'); home_mintxt.textContent = mintxt;
+	var home_minlivorig = document.getElementById('minlivorig'); home_minlivorig.textContent = minlivorig;
+	var home_minlivpromo = document.getElementById('minlivpromo'); home_minlivpromo.textContent = minlivpromo;
+	var home_minlivtxt = document.getElementById('minlivtxt'); home_minlivtxt.textContent = minlivtxt;
+	
+	var home_livorig = document.getElementById('livorig'); home_livorig.textContent = livorig;
+	var home_livpromo = document.getElementById('livpromo'); home_livpromo.textContent = livpromo;
 	var home_livtxt = document.getElementById('livtxt'); home_livtxt.textContent = livtxt;
 }
 
