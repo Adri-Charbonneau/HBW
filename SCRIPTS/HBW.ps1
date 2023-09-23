@@ -33,8 +33,8 @@ Add-Content -Path "./DATA/PRIX_HBW.csv" -Value "$line"
 Remove-Item HBW.html
 
 # git and create tag
-git config --local user.email "$mail"
-git config --local user.name "Adri-Charbonneau"
+git config user.name 'github-actions[bot]'
+git config user.email 'github-actions[bot]@users.noreply.github.com'
 git add .
 git commit -m "[Bot] Update HBW price"
 git push -f

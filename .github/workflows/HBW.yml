@@ -8,7 +8,6 @@ on:
 env:
     TELEGRAM: ${{ secrets.TELEGRAM }}
     CHAT_ID: ${{ secrets.CHAT_ID }}
-    MAIL: ${{ secrets.MAIL }}
 
 jobs:
   UPDATE-ALL:
