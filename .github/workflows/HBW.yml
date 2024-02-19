@@ -13,7 +13,7 @@ jobs:
   UPDATE-ALL:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@main
 
       - name: UPDATE-HBW
         if: always()
